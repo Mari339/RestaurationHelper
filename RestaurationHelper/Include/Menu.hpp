@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include <string>
+#include <iostream>
 
 
 struct Menu {
@@ -13,6 +14,9 @@ struct Menu {
         this->id = id;
         this->name = name;
         this->price = price;
+    }
+    void show() {
+        std::cout << "ID: " << id << ", NAME: " << name << ", PRICE: " << price;
     }
 };
 

@@ -15,4 +15,5 @@ bool Kitchen::deleteFromOrdersQueue(Order order) {
     if (!isIdInPendingOrders(order))
         return false;
     pending_orders.erase(order);
+    return true;
 }

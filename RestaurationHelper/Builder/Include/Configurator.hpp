@@ -9,6 +9,8 @@
 #include <vector>
 #include <set>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 
 class Configurator : public IBuilder {

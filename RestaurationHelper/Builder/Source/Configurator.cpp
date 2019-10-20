@@ -1,6 +1,4 @@
 #include "../Include/Configurator.hpp"
-#include <iostream>
-#include <string>
 
 
 Restaurant Configurator::getRestaurant() {
