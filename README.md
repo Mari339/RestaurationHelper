@@ -1,3 +1,3 @@
 # RestaurationHelper
 
-TODO
+Work in progress - project is not done yet.
