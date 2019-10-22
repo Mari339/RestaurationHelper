@@ -1,12 +1,10 @@
 #include "../Include/Restaurant.hpp"
-#include <string>
-#include <iostream>
 
-Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1) {}
+Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu() {}
 
-Restaurant::Restaurant(std::string name) : name(name), list_of_ids(1, 1) {}
+Restaurant::Restaurant(std::string name) : name(name), list_of_ids(1, 1), menu() {}
 
-Restaurant::Restaurant(std::string name, std::vector<int> ids) : name(name), list_of_ids(ids) {}
+Restaurant::Restaurant(std::string name, std::vector<int> ids, std::vector<Menu> menu) : name(name), list_of_ids(ids), menu(menu) {}
 
 void Restaurant::run() {
     bool logged_in = false;

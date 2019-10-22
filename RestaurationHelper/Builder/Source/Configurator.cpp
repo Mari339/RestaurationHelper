@@ -2,7 +2,7 @@
 
 
 Restaurant Configurator::getRestaurant() {
-    return Restaurant(getConfigValue("name"), list_of_ids);
+    return Restaurant(getConfigValue("name"), list_of_ids, menu);
 }
 
 void Configurator::loadConfig(std::string path) {
@@ -21,11 +21,12 @@ void Configurator::loadMenu() {
     std::ifstream inFile;
     openFile(path_to_menu, inFile);
     std::string id, name, price;
+    Menu temp;
     while (inFile >> id >> name >> price) {
-        Menu temp;
         temp.setMenu(std::stoi(id), name, std::stof(price));
         menu.push_back(temp);
     }
+    inFile.close();
 }
 
 void Configurator::loadIds() {
@@ -37,6 +38,7 @@ void Configurator::loadIds() {
         int id_val = stoi(id);
         list_of_ids.push_back(id_val);
     }
+    inFile.close();
 }
 
 std::string Configurator::getConfigValue(std::string key) {

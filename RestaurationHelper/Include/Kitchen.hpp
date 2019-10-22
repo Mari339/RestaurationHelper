@@ -3,12 +3,14 @@
 
 #include <set>
 #include <iostream>
+#include <deque>
 #include "Order.hpp"
 
 class Kitchen {
 private:
+    constexpr static int MAX_COMPLETED_ORDERS_SIZE = 5;
     std::set<Order> pending_orders;
-    std::set<Order> completed_orders;
+    std::deque<Order> completed_orders;
 public:
     bool isIdInPendingOrders(Order);
     bool insertToPendingOrders(Order);
@@ -16,6 +18,8 @@ public:
     bool updateCompletedOrders(Order);
     void showPendingOrders();
     void showCompletedOrders();
+private:
+    void printOrder(Order);
 };
 
 #endif // !KITCHEN_H
