@@ -15,6 +15,7 @@ private:
 public:
     Order(const std::vector<Menu>& dishes);
     void show();
+    std::vector<Menu> getDishes();
     void updateDishes(const std::vector<Menu>&);
     bool operator<(const Order&) const;
 private:

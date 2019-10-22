@@ -18,6 +18,10 @@ void Order::show() {
     std::cout << "\n";
 }
 
+std::vector<Menu> Order::getDishes() {
+    return dishes;
+}
+
 void Order::updateDishes(const std::vector<Menu>& dishes) {
     this->dishes = dishes;
     computePrice();
