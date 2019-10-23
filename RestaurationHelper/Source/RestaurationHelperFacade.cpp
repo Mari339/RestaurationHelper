@@ -12,7 +12,7 @@ private:
 public:
     RestaurationHelperFacade() : restaurant(), prepared(false), director() {}
 
-    RestaurationHelperFacade(std::string path) :restaurant(), prepared(false), director(path) {}
+    RestaurationHelperFacade(const std::string& path) :restaurant(), prepared(false), director(path) {}
 
     void prepareRestaurant() {
         std::shared_ptr<IBuilder> builder = std::make_shared<Configurator>();

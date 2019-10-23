@@ -19,7 +19,7 @@ public:
     void showPendingOrders();
     void showCompletedOrders();
 private:
-    void printOrder(Order);
+    void printOrder(const Order&);
 };
 
 #endif // !KITCHEN_H

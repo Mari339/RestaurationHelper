@@ -15,8 +15,8 @@ private:
     std::vector<Menu> menu;
 public:
     Restaurant();
-    Restaurant(std::string);
-    Restaurant(std::string, std::vector<int>, std::vector<Menu>);
+    Restaurant(const std::string&);
+    Restaurant(const std::string&, const std::vector<int>&, const std::vector<Menu>&);
     ~Restaurant() = default;
     void run();
     void process();

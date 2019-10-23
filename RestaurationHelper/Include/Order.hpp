@@ -14,7 +14,7 @@ private:
     struct std::tm* order_time;
 public:
     Order(const std::vector<Menu>& dishes);
-    void show();
+    void show() const;
     std::vector<Menu> getDishes();
     void updateDishes(const std::vector<Menu>&);
     bool operator<(const Order&) const;

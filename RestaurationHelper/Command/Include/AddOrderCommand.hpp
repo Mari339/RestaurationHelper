@@ -11,7 +11,7 @@ class AddOrderCommand : public ICommand {
 private:
     std::vector<Menu> menu;
 public:
-    AddOrderCommand(Kitchen* kitchen, std::vector<Menu>);
+    AddOrderCommand(Kitchen* kitchen, const std::vector<Menu>&);
     bool execute();
 private:
     Order createOrder();

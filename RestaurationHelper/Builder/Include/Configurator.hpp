@@ -19,12 +19,12 @@ private:
     std::vector<int> list_of_ids;
 public:
     Restaurant getRestaurant();
-    void loadConfig(std::string path = "C:\\Users\\Mari\\source\\repos\\RestaurationHelper\\RestaurationHelper\\Data\\config.ini");
+    void loadConfig(const std::string& path = "C:\\Users\\Mari\\source\\repos\\RestaurationHelper\\RestaurationHelper\\Data\\config.ini");
     void loadMenu();
     void loadIds();
 private:
-    std::string getConfigValue(std::string);
-    void openFile(std::string, std::ifstream&);
+    std::string getConfigValue(const std::string&);
+    void openFile(const std::string&, std::ifstream&);
 };
 
 #endif //CONFIGURATOR_H

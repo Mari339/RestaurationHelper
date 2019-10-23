@@ -35,7 +35,7 @@ void Kitchen::showCompletedOrders() {
         printOrder(o);
 }
 
-void Kitchen::printOrder(Order o) {
+void Kitchen::printOrder(const Order& o) {
     o.show();
     std::cout << "\n";
 }

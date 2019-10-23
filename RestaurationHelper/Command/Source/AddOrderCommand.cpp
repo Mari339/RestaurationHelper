@@ -1,6 +1,7 @@
 #include "../Include/AddOrderCommand.hpp"
 
-AddOrderCommand::AddOrderCommand(Kitchen* kitchen, std::vector<Menu> menu) : ICommand::ICommand(kitchen), menu(menu) {}
+AddOrderCommand::AddOrderCommand(Kitchen* kitchen, const std::vector<Menu>& menu)
+    : ICommand::ICommand(kitchen), menu(menu) {}
 
 bool AddOrderCommand::execute() {
     Order order = createOrder();

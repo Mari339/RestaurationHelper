@@ -15,7 +15,7 @@ struct Menu {
         this->name = name;
         this->price = price;
     }
-    void show() {
+    void show() const {
         std::cout << "ID: " << id << ", NAME: " << name << ", PRICE: " << price;
     }
 };

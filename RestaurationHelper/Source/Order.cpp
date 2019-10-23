@@ -8,7 +8,7 @@ Order::Order(const std::vector<Menu>& dishes) {
     setOrderTime();
 }
 
-void Order::show() {
+void Order::show() const {
     std::cout << "ID: " << id << ", DATE: " << asctime(order_time) << ", PRICE:" << price << "\n";
     std::cout << "DISHES: ";
     for (int i = 0; i < dishes.size(); i++) {

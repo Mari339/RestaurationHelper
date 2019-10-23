@@ -5,7 +5,7 @@ Restaurant Configurator::getRestaurant() {
     return Restaurant(getConfigValue("name"), list_of_ids, menu);
 }
 
-void Configurator::loadConfig(std::string path) {
+void Configurator::loadConfig(const std::string& path) {
     std::ifstream inFile;
     openFile(path, inFile);
     std::string key, value;
@@ -41,11 +41,11 @@ void Configurator::loadIds() {
     inFile.close();
 }
 
-std::string Configurator::getConfigValue(std::string key) {
+std::string Configurator::getConfigValue(const std::string& key) {
     return config.find(key)->second;
 }
 
-void Configurator::openFile(std::string path, std::ifstream& inFile) {
+void Configurator::openFile(const std::string& path, std::ifstream& inFile) {
     inFile.open(path);
     if (!inFile) {
         std::cout << "Unable to open configuration file!";

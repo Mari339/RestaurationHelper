@@ -2,9 +2,10 @@
 
 Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu() {}
 
-Restaurant::Restaurant(std::string name) : name(name), list_of_ids(1, 1), menu() {}
+Restaurant::Restaurant(const std::string& name) : name(name), list_of_ids(1, 1), menu() {}
 
-Restaurant::Restaurant(std::string name, std::vector<int> ids, std::vector<Menu> menu) : name(name), list_of_ids(ids), menu(menu) {}
+Restaurant::Restaurant(const std::string& name, const std::vector<int>& ids, const std::vector<Menu>& menu) 
+    : name(name), list_of_ids(ids), menu(menu) {}
 
 void Restaurant::run() {
     bool logged_in = false;
@@ -43,8 +44,9 @@ void Restaurant::showMenu() {
     std::cout << "1. Add order\n";
     std::cout << "2. Close order\n";
     std::cout << "3. Edit order\n";
-    std::cout << "4. Add order\n";
-    std::cout << "5. Show closed orders\n";
+    std::cout << "4. Delete order\n";
+    std::cout << "5. Show orders\n";
+    std::cout << "6. Show closed orders\n";
     std::cout << "9. Exit\n";
 }
 
