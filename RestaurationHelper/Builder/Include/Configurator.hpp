@@ -25,6 +25,7 @@ public:
 private:
     std::string getConfigValue(const std::string&);
     void openFile(const std::string&, std::ifstream&);
+    void createKitchen(Restaurant&);
 };
 
 #endif //CONFIGURATOR_H

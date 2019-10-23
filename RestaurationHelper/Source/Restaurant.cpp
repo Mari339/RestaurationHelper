@@ -1,11 +1,21 @@
 #include "../Include/Restaurant.hpp"
 
-Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu() {}
+Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu(), kitchen(nullptr) {}
 
-Restaurant::Restaurant(const std::string& name) : name(name), list_of_ids(1, 1), menu() {}
+Restaurant::Restaurant(const std::string& name) : name(name), list_of_ids(1, 1), menu(), kitchen(nullptr) {}
 
-Restaurant::Restaurant(const std::string& name, const std::vector<int>& ids, const std::vector<Menu>& menu) 
-    : name(name), list_of_ids(ids), menu(menu) {}
+Restaurant::Restaurant(const std::string& name,
+                       const std::vector<int>& ids,
+                       const std::vector<Menu>& menu)
+    : name(name), list_of_ids(ids), menu(menu), kitchen(kitchen) {}
+
+bool Restaurant::setUpKitchen() {
+    if (kitchen == nullptr) {
+        kitchen = std::make_shared<Kitchen>();
+        return true;
+    }
+    return false;
+}
 
 void Restaurant::run() {
     bool logged_in = false;

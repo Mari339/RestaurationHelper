@@ -2,12 +2,13 @@
 #define ICOMMAND_H
 
 #include "../../Include/Kitchen.hpp"
+#include <memory>
 
 class ICommand {
 protected:
-    Kitchen* kitchen;
+    std::shared_ptr<Kitchen> kitchen;
 public:
-    ICommand(Kitchen* kitchen) : kitchen(kitchen) {}
+    ICommand(std::shared_ptr<Kitchen>) : kitchen(kitchen) {}
     virtual bool execute() = 0;
 };
 

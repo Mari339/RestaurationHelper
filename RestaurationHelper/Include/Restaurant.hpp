@@ -5,7 +5,9 @@
 #include <set>
 #include <string>
 #include <iostream>
+#include <memory>
 #include "Menu.hpp"
+#include "Kitchen.hpp"
 
 
 class Restaurant {
@@ -13,11 +15,13 @@ private:
     std::vector<int> list_of_ids;
     std::string name;
     std::vector<Menu> menu;
+    std::shared_ptr<Kitchen> kitchen;
 public:
     Restaurant();
     Restaurant(const std::string&);
     Restaurant(const std::string&, const std::vector<int>&, const std::vector<Menu>&);
     ~Restaurant() = default;
+    bool setUpKitchen();
     void run();
     void process();
 private:

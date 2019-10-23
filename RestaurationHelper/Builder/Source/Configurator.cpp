@@ -2,7 +2,9 @@
 
 
 Restaurant Configurator::getRestaurant() {
-    return Restaurant(getConfigValue("name"), list_of_ids, menu);
+    Restaurant output(getConfigValue("name"), list_of_ids, menu);
+    createKitchen(output);
+    return output;
 }
 
 void Configurator::loadConfig(const std::string& path) {
@@ -51,4 +53,8 @@ void Configurator::openFile(const std::string& path, std::ifstream& inFile) {
         std::cout << "Unable to open configuration file!";
         exit(1);
     }
+}
+
+void Configurator::createKitchen(Restaurant& restaurant) {
+    restaurant.setUpKitchen();
 }
