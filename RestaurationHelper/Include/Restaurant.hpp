@@ -17,7 +17,7 @@ private:
     std::vector<Menu> menu;
     std::shared_ptr<Kitchen> kitchen;
 public:
-    Restaurant();
+    Restaurant() = delete;
     Restaurant(const std::string&);
     Restaurant(const std::string&, const std::vector<int>&, const std::vector<Menu>&);
     ~Restaurant() = default;

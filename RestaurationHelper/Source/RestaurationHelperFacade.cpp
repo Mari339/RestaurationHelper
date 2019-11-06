@@ -6,25 +6,19 @@
 
 class RestaurationHelperFacade {
 private:
-    Restaurant restaurant;
     bool prepared;
     Director director;
 public:
-    RestaurationHelperFacade() : restaurant(), prepared(false), director() {}
+    RestaurationHelperFacade() : prepared(false), director() {}
 
-    RestaurationHelperFacade(const std::string& path) :restaurant(), prepared(false), director(path) {}
+    RestaurationHelperFacade(const std::string& path) : prepared(false), director(path) {}
 
-    void prepareRestaurant() {
+    void runRestaurant() {
         std::shared_ptr<IBuilder> builder = std::make_shared<Configurator>();
         director.setBuilder(builder);
         director.build();
-        restaurant = builder->getRestaurant();
+        Restaurant restaurant = builder->getRestaurant();
+        restaurant.run();
         prepared = true;
-    }
-    void runRestaurant() {
-        if (prepared)
-            restaurant.run();
-        else
-            std::cout << "Restaurant is not prepared!\n";
     }
 };

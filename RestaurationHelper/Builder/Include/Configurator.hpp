@@ -19,7 +19,7 @@ private:
     std::vector<int> list_of_ids;
 public:
     Restaurant getRestaurant();
-    void loadConfig(const std::string& path = "C:\\Users\\Mari\\source\\repos\\RestaurationHelper\\RestaurationHelper\\Data\\config.ini");
+    void loadConfig(std::string path = "C:\\Users\\Mari\\source\\repos\\RestaurationHelper\\RestaurationHelper\\Data\\config.ini");
     void loadMenu();
     void loadIds();
 private:

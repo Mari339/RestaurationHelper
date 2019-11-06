@@ -1,6 +1,6 @@
 #include "../Include/Restaurant.hpp"
 
-Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu(), kitchen(nullptr) {}
+//Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu(), kitchen(nullptr) {}
 
 Restaurant::Restaurant(const std::string& name) : name(name), list_of_ids(1, 1), menu(), kitchen(nullptr) {}
 

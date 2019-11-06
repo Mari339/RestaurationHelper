@@ -7,7 +7,7 @@ Restaurant Configurator::getRestaurant() {
     return output;
 }
 
-void Configurator::loadConfig(const std::string& path) {
+void Configurator::loadConfig(std::string path) {
     std::ifstream inFile;
     openFile(path, inFile);
     std::string key, value;
