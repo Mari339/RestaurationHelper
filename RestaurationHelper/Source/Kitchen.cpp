@@ -7,7 +7,7 @@ bool Kitchen::isIdInPendingOrders(Order order) {
 bool Kitchen::insertToPendingOrders(Order order) {
     if (isIdInPendingOrders(order))
         return false;
-    pending_orders.insert(order);
+    completed_orders.push_back(order);
     return true;
 }
 

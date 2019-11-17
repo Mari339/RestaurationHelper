@@ -3,7 +3,7 @@
 
 Restaurant Configurator::getRestaurant() {
     Restaurant output(getConfigValue("name"), list_of_ids, menu);
-    createKitchen(output);
+    //createKitchen(output);
     return output;
 }
 

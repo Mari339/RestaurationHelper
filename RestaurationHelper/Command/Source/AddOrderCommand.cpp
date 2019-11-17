@@ -1,6 +1,7 @@
 #include "../Include/AddOrderCommand.hpp"
+#include <vector>
 
-AddOrderCommand::AddOrderCommand(std::shared_ptr<Kitchen>, const std::vector<Menu>& menu)
+AddOrderCommand::AddOrderCommand(std::shared_ptr<Kitchen> kitchen, const std::vector<Menu>& menu)
     : ICommand::ICommand(kitchen), menu(menu) {}
 
 bool AddOrderCommand::execute() {
@@ -20,7 +21,7 @@ std::vector<Menu> AddOrderCommand::makeDishesListFromMenu() {
     while(true) {
         showMenu();
         std::cin >> choice;
-        if (choice == 0)
+        if (choice == '0')
             return output;
         std::pair<Menu, bool> new_dish = getMenuObject(choice);
         if (new_dish.second)
@@ -35,12 +36,12 @@ void AddOrderCommand::showMenu() {
         m.show();
         std::cout << "\n";
     }
-    std::cout << "Your choice (ID): ";
+    std::cout << "Your choice (ID, 0 to confirm): ";
 }
 
 std::pair<Menu, bool> AddOrderCommand::getMenuObject(char choice) {
     for (Menu m : menu)
-        if (m.id == choice)
+        if (m.id == choice - '0')
             return std::make_pair(m, true);
     return std::make_pair(Menu(), false);
 }

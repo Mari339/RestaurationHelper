@@ -1,13 +1,19 @@
 #include "../Include/Restaurant.hpp"
 
-//Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu(), kitchen(nullptr) {}
+Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu(), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
 
-Restaurant::Restaurant(const std::string& name) : name(name), list_of_ids(1, 1), menu(), kitchen(nullptr) {}
+Restaurant::Restaurant(const std::string& name) : name(name), list_of_ids(1, 1), menu(), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
 
 Restaurant::Restaurant(const std::string& name,
                        const std::vector<int>& ids,
                        const std::vector<Menu>& menu)
-    : name(name), list_of_ids(ids), menu(menu), kitchen(kitchen) {}
+    : name(name), list_of_ids(ids), menu(menu), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
+
+Restaurant::~Restaurant() {
+    for (auto command : commands)
+        if (command != nullptr)
+            delete command;
+}
 
 bool Restaurant::setUpKitchen() {
     if (kitchen == nullptr) {
@@ -41,10 +47,16 @@ bool Restaurant::checkForId(int id) {
 
 void Restaurant::process() {
     bool terminate = false;
+    setUpKitchen();
+    prepareCommands();
     while (!terminate) {
         showMenu();
         terminate = handleMenu();
     }
+}
+
+void Restaurant::prepareCommands() {
+    commands.push_back(new AddOrderCommand(kitchen, menu));
 }
 
 void Restaurant::showMenu() {
@@ -66,7 +78,7 @@ bool Restaurant::handleMenu() {
     std::cin >> choice;
     switch (choice) {
     case '1':
-        //TODO
+        commands.at(ADD)->execute();
         break;
     case '9':
         return true;

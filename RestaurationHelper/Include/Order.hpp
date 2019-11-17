@@ -8,11 +8,12 @@
 class Order {
 private:
     static int id_counter;
-    int id;
+    //int id;
     double price;
     std::vector<Menu> dishes;
     struct std::tm* order_time;
 public:
+    int id;
     Order(const std::vector<Menu>& dishes);
     void show() const;
     std::vector<Menu> getDishes();

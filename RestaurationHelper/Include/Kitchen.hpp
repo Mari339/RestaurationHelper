@@ -12,6 +12,7 @@ private:
     std::set<Order> pending_orders;
     std::deque<Order> completed_orders;
 public:
+    Kitchen() : pending_orders(), completed_orders() {}
     bool isIdInPendingOrders(Order);
     bool insertToPendingOrders(Order);
     bool deleteFromOrdersQueue(Order);
