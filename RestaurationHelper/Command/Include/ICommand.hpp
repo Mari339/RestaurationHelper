@@ -8,7 +8,7 @@ class ICommand {
 protected:
     std::shared_ptr<Kitchen> kitchen;
 public:
-    ICommand(std::shared_ptr<Kitchen> kitchen) : kitchen(kitchen) {}
+    ICommand(std::shared_ptr<Kitchen>& kitchen) : kitchen(kitchen) {}
     virtual bool execute() = 0;
 };
 

@@ -9,13 +9,13 @@ Order::Order(const std::vector<Menu>& dishes) {
 }
 
 void Order::show() const {
-    std::cout << "ID: " << id << ", DATE: " << asctime(order_time) << ", PRICE:" << price << "\n";
-    std::cout << "DISHES: ";
+    std::cout << "ID: " << id << ", DATE: " << asctime(order_time)
+              << "TOTAL PRICE:" << price << "\n"
+              << "DISHES: " << "\n";
     for (int i = 0; i < dishes.size(); i++) {
         dishes[i].show();
-        std::cout << ", ";
+        std::cout << ",\n";
     }
-    std::cout << "\n";
 }
 
 std::vector<Menu> Order::getDishes() {

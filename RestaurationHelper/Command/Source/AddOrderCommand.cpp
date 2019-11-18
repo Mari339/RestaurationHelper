@@ -1,7 +1,7 @@
 #include "../Include/AddOrderCommand.hpp"
 #include <vector>
 
-AddOrderCommand::AddOrderCommand(std::shared_ptr<Kitchen> kitchen, const std::vector<Menu>& menu)
+AddOrderCommand::AddOrderCommand(std::shared_ptr<Kitchen>& kitchen, const std::vector<Menu>& menu)
     : ICommand::ICommand(kitchen), menu(menu) {}
 
 bool AddOrderCommand::execute() {

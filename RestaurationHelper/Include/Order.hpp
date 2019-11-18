@@ -8,7 +8,6 @@
 class Order {
 private:
     static int id_counter;
-    //int id;
     double price;
     std::vector<Menu> dishes;
     struct std::tm* order_time;
