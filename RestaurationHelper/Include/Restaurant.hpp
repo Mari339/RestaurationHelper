@@ -10,6 +10,9 @@
 #include "Kitchen.hpp"
 #include "../Command/Include/ICommand.hpp"
 #include "../Command/Include/AddOrderCommand.hpp"
+#include "../Command/Include/ShowPendingOrdersCommand.hpp"
+#include "../Command/Include/CloseOrderCommand.hpp"
+#include "../Command/Include/ShowCompletedOrdersCommand.hpp"
 #include "../pch.h"
 
 
@@ -19,17 +22,16 @@ private:
     std::string name;
     std::vector<Menu> menu;
     std::shared_ptr<Kitchen> kitchen;
-    std::vector<ICommand*> commands;
+    std::vector<std::shared_ptr<ICommand>> commands;
 
-    const int COMMANDS_NUMBER = 5;
+    const int COMMANDS_NUMBER = 6;
     enum COMMANDS {
-        ADD, DEL, EDIT, CLOSE, SHOW
+        ADD, CLOSE, EDIT, DELETE, SHOW, SHOW_COMPLETED
     };
 public:
     Restaurant();
     Restaurant(const std::string&);
     Restaurant(const std::string&, const std::vector<int>&, const std::vector<Menu>&);
-    ~Restaurant();
     bool setUpKitchen();
     void run();
     void process();

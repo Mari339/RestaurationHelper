@@ -4,6 +4,7 @@
 #include <set>
 #include <iostream>
 #include <deque>
+#include <iterator>
 #include "Order.hpp"
 
 class Kitchen {
@@ -13,10 +14,12 @@ private:
     std::deque<Order> completed_orders;
 public:
     Kitchen() : pending_orders(), completed_orders() {}
-    bool isIdInPendingOrders(Order);
+    bool isIdInPendingOrders(int);
     bool insertToPendingOrders(Order);
+    bool replaceOrderInPendingOrders(Order, Order);
     bool deleteFromOrdersQueue(Order);
     bool updateCompletedOrders(Order);
+    Order getOrder(int) noexcept(false);
     void showPendingOrders();
     void showCompletedOrders();
 private:

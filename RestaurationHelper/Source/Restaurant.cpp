@@ -13,12 +13,6 @@ Restaurant::Restaurant(const std::string& name,
                        const std::vector<Menu>& menu)
     : name(name), list_of_ids(ids), menu(menu), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
 
-Restaurant::~Restaurant() {
-    for (auto command : commands)
-        if (command != nullptr)
-            delete command;
-}
-
 bool Restaurant::setUpKitchen() {
     if (kitchen == nullptr) {
         kitchen = std::make_shared<Kitchen>();
@@ -60,7 +54,10 @@ void Restaurant::process() {
 }
 
 void Restaurant::prepareCommands() {
-    commands.push_back(new AddOrderCommand(kitchen, menu));
+    commands.push_back(std::make_shared<AddOrderCommand>(kitchen, menu));
+    commands.push_back(std::make_shared<CloseOrderCommand>(kitchen));
+    commands.push_back(std::make_shared<ShowPendingOrdersCommand>(kitchen));
+    commands.push_back(std::make_shared<ShowCompletedOrdersCommand>(kitchen));
 }
 
 void Restaurant::showMenu() {
@@ -80,9 +77,24 @@ bool Restaurant::handleMenu() {
     std::cout << "Your choice: ";
     char choice;
     std::cin >> choice;
-    switch (choice) {
+    switch (choice) { //TODO: obsluga wartosci zwracanej
     case '1':
         commands.at(ADD)->execute();
+        break;
+    case '2':
+        commands.at(CLOSE)->execute();
+        break;
+    case '3':
+        commands.at(EDIT)->execute();
+        break;
+    case '4':
+        commands.at(DELETE)->execute();
+        break;
+    case '5':
+        commands.at(SHOW)->execute();
+        break;
+    case '6':
+        commands.at(SHOW_COMPLETED)->execute();
         break;
     case '9':
         return true;
