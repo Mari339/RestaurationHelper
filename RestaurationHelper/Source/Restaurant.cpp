@@ -54,9 +54,10 @@ void Restaurant::process() {
 }
 
 void Restaurant::prepareCommands() {
-    commands.push_back(std::make_shared<AddOrderCommand>(kitchen, menu));
+    std::shared_ptr<AddOrderCommand> add_command = std::make_shared<AddOrderCommand>(kitchen, menu);
+    commands.push_back(add_command);
     commands.push_back(std::make_shared<CloseOrderCommand>(kitchen));
-    commands.push_back(std::make_shared<EditOrderCommand>(kitchen));
+    commands.push_back(std::make_shared<EditOrderCommand>(kitchen, add_command));
     commands.push_back(std::make_shared<DeleteOrderCommand>(kitchen));
     commands.push_back(std::make_shared<ShowPendingOrdersCommand>(kitchen));
     commands.push_back(std::make_shared<ShowCompletedOrdersCommand>(kitchen));

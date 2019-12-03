@@ -172,6 +172,7 @@
     <ClCompile Include="Builder\Source\Configurator.cpp" />
     <ClCompile Include="Command\Source\AddOrderCommand.cpp" />
     <ClCompile Include="Command\Source\CloseOrderCommand.cpp" />
+    <ClCompile Include="Command\Source\EditOrderCommand.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

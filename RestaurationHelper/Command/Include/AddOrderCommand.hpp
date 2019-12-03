@@ -13,8 +13,8 @@ private:
 public:
     AddOrderCommand(std::shared_ptr<Kitchen>&, const std::vector<Menu>&);
     bool execute();
-private:
     Order createOrder();
+private:
     std::vector<Menu> makeDishesListFromMenu();
     void showMenu();
     std::pair<Menu, bool> getMenuObject(char);
