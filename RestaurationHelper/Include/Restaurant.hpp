@@ -10,6 +10,8 @@
 #include "Kitchen.hpp"
 #include "../Command/Include/ICommand.hpp"
 #include "../Command/Include/AddOrderCommand.hpp"
+#include "../Command/Include/EditOrderCommand.hpp"
+#include "../Command/Include/DeleteOrderCommand.hpp"
 #include "../Command/Include/ShowPendingOrdersCommand.hpp"
 #include "../Command/Include/CloseOrderCommand.hpp"
 #include "../Command/Include/ShowCompletedOrdersCommand.hpp"
@@ -41,6 +43,7 @@ private:
     void prepareCommands();
     void showMenu();
     bool handleMenu();
+    char getUserChoice();
 };
 
 #endif //RESTAURANT_H

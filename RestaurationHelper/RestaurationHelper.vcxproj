@@ -157,6 +157,8 @@
     <ClInclude Include="Builder\Include\Configurator.hpp" />
     <ClInclude Include="Builder\Include\IBuilder.hpp" />
     <ClInclude Include="Command\Include\AddOrderCommand.hpp" />
+    <ClInclude Include="Command\Include\DeleteOrderCommand.hpp" />
+    <ClInclude Include="Command\Include\EditOrderCommand.hpp" />
     <ClInclude Include="Command\Include\ICommand.hpp" />
     <ClInclude Include="Command\Include\ShowCompletedOrdersCommand.hpp" />
     <ClInclude Include="Command\Include\ShowPendingOrdersCommand.hpp" />

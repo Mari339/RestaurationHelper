@@ -56,6 +56,8 @@ void Restaurant::process() {
 void Restaurant::prepareCommands() {
     commands.push_back(std::make_shared<AddOrderCommand>(kitchen, menu));
     commands.push_back(std::make_shared<CloseOrderCommand>(kitchen));
+    commands.push_back(std::make_shared<EditOrderCommand>(kitchen));
+    commands.push_back(std::make_shared<DeleteOrderCommand>(kitchen));
     commands.push_back(std::make_shared<ShowPendingOrdersCommand>(kitchen));
     commands.push_back(std::make_shared<ShowCompletedOrdersCommand>(kitchen));
 }
@@ -74,32 +76,39 @@ void Restaurant::showMenu() {
 }
 
 bool Restaurant::handleMenu() {
-    std::cout << "Your choice: ";
-    char choice;
-    std::cin >> choice;
-    switch (choice) { //TODO: obsluga wartosci zwracanej
+    bool was_success = false;
+    switch (getUserChoice()) {
     case '1':
-        commands.at(ADD)->execute();
+        was_success = commands.at(ADD)->execute();
         break;
     case '2':
-        commands.at(CLOSE)->execute();
+        was_success = commands.at(CLOSE)->execute();
         break;
     case '3':
-        commands.at(EDIT)->execute();
+        was_success = commands.at(EDIT)->execute();
         break;
     case '4':
-        commands.at(DELETE)->execute();
+        was_success = commands.at(DELETE)->execute();
         break;
     case '5':
-        commands.at(SHOW)->execute();
+        was_success = commands.at(SHOW)->execute();
         break;
     case '6':
-        commands.at(SHOW_COMPLETED)->execute();
+        was_success = commands.at(SHOW_COMPLETED)->execute();
         break;
     case '9':
         return true;
     default:
         std::cout << "Wrong option!\n";
     }
+    if (!was_success)
+        std::cout << "Command execution was unsuccessful.\n";
     return false;
+}
+
+char Restaurant::getUserChoice() {
+    std::cout << "Your choice: ";
+    char choice;
+    std::cin >> choice;
+    return choice;
 }
