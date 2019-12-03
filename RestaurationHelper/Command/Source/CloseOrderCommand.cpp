@@ -4,6 +4,8 @@ CloseOrderCommand::CloseOrderCommand(std::shared_ptr<Kitchen> kitchen) : IComman
 
 bool CloseOrderCommand::execute() {
     int id = getOrderId("Chose order id to close (0 to cancel): ");
+    if (id == 0)
+        return false;
     try {
         Order order = kitchen->getOrder(id);
         bool result = kitchen->deleteFromOrdersQueue(order);
