@@ -3,7 +3,7 @@
 CloseOrderCommand::CloseOrderCommand(std::shared_ptr<Kitchen> kitchen) : ICommand(kitchen) {}
 
 bool CloseOrderCommand::execute() {
-    int id = getIdToClose();
+    int id = getOrderId("Chose order id to close (0 to cancel): ");
     try {
         Order order = kitchen->getOrder(id);
         bool result = kitchen->deleteFromOrdersQueue(order);
@@ -13,11 +13,4 @@ bool CloseOrderCommand::execute() {
         std::cout << msg << "\n";
         return false;
     }
-}
-
-int CloseOrderCommand::getIdToClose() {
-    std::cout << "Chose order id to close: ";
-    int id;
-    std::cin >> id;
-    return id;
 }

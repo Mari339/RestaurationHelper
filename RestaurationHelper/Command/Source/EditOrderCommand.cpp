@@ -1,7 +1,7 @@
 #include "../Include/EditOrderCommand.hpp"
 
 bool EditOrderCommand::execute() {
-    int id = getOrderIdToEdit();
+    int id = getOrderId("Choose order ID to edit (0 to cancel): ");
     if (!checkIfOrderExists(id))
         return false;
     Order to_edit = kitchen->getOrder(id);
@@ -10,14 +10,6 @@ bool EditOrderCommand::execute() {
     if (to_add.getDishes().size() == 0)
         return false;
     return kitchen->replaceOrderInPendingOrders(to_edit, to_add);
-}
-
-int EditOrderCommand::getOrderIdToEdit() {
-    std::cout << "Choose order ID to edit: ";
-    char choice;
-    std::cin >> choice;
-    choice -= ASCII_SHIFT;
-    return choice > 0 && choice <= 9 ? choice : 0;
 }
 
 bool EditOrderCommand::checkIfOrderExists(int id) {
