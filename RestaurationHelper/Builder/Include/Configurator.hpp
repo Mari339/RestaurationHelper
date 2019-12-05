@@ -5,6 +5,7 @@
 #include "../../Include/Menu.hpp"
 #include "IBuilder.hpp"
 #include "../../Include/Restaurant.hpp"
+#include "../../ConfigReader/Include/TxtConfigReader.hpp"
 #include <map>
 #include <vector>
 #include <fstream>

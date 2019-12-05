@@ -7,13 +7,8 @@ Restaurant Configurator::getRestaurant() {
 }
 
 void Configurator::loadConfig(std::string path) {
-    std::ifstream inFile;
-    openFile(path, inFile);
-    std::string key, value;
-    while (inFile >> key >> value) {
-        config.insert(std::make_pair(key, value));
-    }
-    inFile.close();
+    TxtConfigReader reader;
+    config = reader.loadConfig(path);
 }
 
 

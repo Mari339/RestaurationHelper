@@ -5,16 +5,19 @@
 #include <memory>
 
 class ICommand {
-private:
-    constexpr static int ASCII_SHIFT = 48;
 protected:
     std::shared_ptr<Kitchen> kitchen;
     int getOrderId(const std::string msg) {
-        std::cout << msg;
-        char choice;
-        std::cin >> choice;
-        choice -= ASCII_SHIFT;
-        return choice > 0 && choice <= 9 ? choice : 0;
+        try {
+            std::cout << msg;
+            int choice;
+            std::cin >> choice;
+            return choice;
+        }
+        catch (...) {
+            std::cout << "Wrong input value";
+            return 0;
+        }
     }
 public:
     ICommand(std::shared_ptr<Kitchen>& kitchen) : kitchen(kitchen) {}
