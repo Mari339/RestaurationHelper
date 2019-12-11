@@ -14,7 +14,7 @@ std::map<std::string, std::string> TxtConfigReader::loadConfig(std::string path)
 
 void TxtConfigReader::openFile(const std::string& path, std::ifstream& inFile) {
     inFile.open(path);
-    if (!inFile) {
+    if (!inFile.is_open()) {
         std::cout << "Unable to open configuration file!";
         exit(1);
     }
