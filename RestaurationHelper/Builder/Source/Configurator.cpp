@@ -1,6 +1,9 @@
 #include "../Include/Configurator.hpp"
 
 
+using namespace Builder;
+
+
 Restaurant Configurator::getRestaurant() {
     Restaurant output(getConfigValue("name"), list_of_ids, menu);
     return output;

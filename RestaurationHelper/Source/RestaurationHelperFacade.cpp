@@ -4,6 +4,8 @@
 #include <iostream>
 #include <memory>
 
+using Builder::Configurator;
+
 class RestaurationHelperFacade {
 private:
     Director director;

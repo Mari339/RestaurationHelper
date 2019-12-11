@@ -2,6 +2,8 @@
 #include <memory>
 #include <string>
 
+using Builder::IBuilder;
+
 class Director {
 private:
     std::shared_ptr<IBuilder> builder;

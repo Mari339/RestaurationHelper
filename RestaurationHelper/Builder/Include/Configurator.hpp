@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 
+namespace Builder {
 
 class Configurator : public IBuilder {
 private:
@@ -28,5 +29,7 @@ private:
     void openFile(const std::string&, std::ifstream&);
     void createKitchen(Restaurant&);
 };
+
+}
 
 #endif //CONFIGURATOR_H
