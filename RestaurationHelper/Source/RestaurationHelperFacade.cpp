@@ -5,6 +5,7 @@
 #include <memory>
 
 using Builder::Configurator;
+using Restauration::Restaurant;
 
 class RestaurationHelperFacade {
 private:

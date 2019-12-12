@@ -4,6 +4,8 @@
 #include "../../Include/Kitchen.hpp"
 #include <memory>
 
+using Restauration::Kitchen;
+
 namespace Command {
 
 class ICommand {

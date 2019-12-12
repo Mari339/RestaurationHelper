@@ -19,6 +19,7 @@
 
 using Command::ICommand;
 
+namespace Restauration {
 
 class Restaurant {
 private:
@@ -47,5 +48,7 @@ private:
     bool handleMenu();
     char getUserChoice();
 };
+
+}
 
 #endif //RESTAURANT_H

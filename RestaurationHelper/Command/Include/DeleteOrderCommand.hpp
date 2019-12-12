@@ -3,6 +3,8 @@
 
 #include "ICommand.hpp"
 
+using Restauration::Kitchen;
+
 namespace Command {
 
 class DeleteOrderCommand : public ICommand {

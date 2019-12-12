@@ -1,5 +1,7 @@
 #include "../Include/Restaurant.hpp"
 
+using namespace Restauration;
+
 Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu(), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
 
 Restaurant::Restaurant(const std::string& name) : name(name),

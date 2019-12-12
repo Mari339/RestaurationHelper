@@ -5,6 +5,8 @@
 #include <time.h>
 #include <iostream>
 
+namespace Restauration {
+
 class Order {
 private:
     static int id_counter;
@@ -22,6 +24,8 @@ private:
     void computePrice();
     void setOrderTime();
 };
+
+}
 
 #endif // ORDER_H
 

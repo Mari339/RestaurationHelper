@@ -1,5 +1,7 @@
 #include "../Include/Kitchen.hpp"
 
+using namespace Restauration;
+
 bool Kitchen::isIdInPendingOrders(int id) {
     for (auto i : pending_orders)
         if (id == i.id)

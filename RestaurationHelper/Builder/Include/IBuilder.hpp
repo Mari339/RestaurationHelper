@@ -7,7 +7,7 @@ namespace Builder {
 
 class IBuilder {
 public:
-    virtual Restaurant getRestaurant() = 0;
+    virtual Restauration::Restaurant getRestaurant() = 0;
     virtual void loadConfig(std::string) = 0;
     virtual void loadMenu() = 0;
     virtual void loadIds() = 0;

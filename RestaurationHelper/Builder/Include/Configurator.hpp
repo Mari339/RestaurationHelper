@@ -12,12 +12,14 @@
 #include <iostream>
 #include <string>
 
+using Restauration::Restaurant;
+
 namespace Builder {
 
 class Configurator : public IBuilder {
 private:
     std::map<std::string, std::string> config;
-    std::vector<Menu> menu;
+    std::vector<Restauration::Menu> menu;
     std::vector<int> list_of_ids;
 public:
     Restaurant getRestaurant();

@@ -1,5 +1,7 @@
 #include "../Include/Order.hpp"
 
+using namespace Restauration;
+
 int Order::id_counter = 0;
 
 Order::Order(const std::vector<Menu>& dishes) {
@@ -12,7 +14,7 @@ void Order::show() const {
     std::cout << "ID: " << id << ", DATE: " << asctime(order_time)
               << "TOTAL PRICE:" << price << "\n"
               << "DISHES: " << "\n";
-    for (int i = 0; i < dishes.size(); i++) {
+    for (unsigned i = 0; i < dishes.size(); i++) {
         dishes[i].show();
         std::cout << ",\n";
     }

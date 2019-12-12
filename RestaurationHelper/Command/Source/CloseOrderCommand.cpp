@@ -9,7 +9,7 @@ bool CloseOrderCommand::execute() {
     if (id == 0)
         return false;
     try {
-        Order order = kitchen->getOrder(id);
+        Restauration::Order order = kitchen->getOrder(id);
         bool result = kitchen->deleteFromOrdersQueue(order);
         return result && kitchen->updateCompletedOrders(order);
     }

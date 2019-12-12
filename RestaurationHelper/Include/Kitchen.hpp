@@ -7,6 +7,8 @@
 #include <iterator>
 #include "Order.hpp"
 
+namespace Restauration {
+
 class Kitchen {
 private:
     constexpr static int MAX_COMPLETED_ORDERS_SIZE = 5;
@@ -25,6 +27,8 @@ public:
 private:
     void printOrder(const Order&);
 };
+
+}
 
 #endif // !KITCHEN_H
 

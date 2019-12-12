@@ -7,7 +7,7 @@ bool DeleteOrderCommand::execute() {
     if (id == 0)
         return false;
     if (kitchen->isIdInPendingOrders(id)) {
-        Order to_delete = kitchen->getOrder(id);
+        Restauration::Order to_delete = kitchen->getOrder(id);
         return kitchen->deleteFromOrdersQueue(to_delete);
     }
     std::cout << "There is no Order with given ID.\n";

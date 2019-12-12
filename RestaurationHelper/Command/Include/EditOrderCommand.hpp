@@ -4,6 +4,9 @@
 #include "ICommand.hpp"
 #include "AddOrderCommand.hpp"
 
+using Restauration::Kitchen;
+using Restauration::Order;
+
 namespace Command {
 
 class EditOrderCommand : public ICommand {

@@ -7,6 +7,10 @@
 #include <vector>
 #include <iostream>
 
+using Restauration::Menu;
+using Restauration::Kitchen;
+using Restauration::Order;
+
 namespace Command {
 
 class AddOrderCommand : public ICommand {

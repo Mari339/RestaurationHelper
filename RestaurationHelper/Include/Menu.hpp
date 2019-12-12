@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+namespace Restauration {
 
 struct Menu {
     int id;
@@ -19,5 +20,7 @@ struct Menu {
         std::cout << "ID: " << id << ", NAME: " << name << ", PRICE: " << price;
     }
 };
+
+}
 
 #endif //MENU_H

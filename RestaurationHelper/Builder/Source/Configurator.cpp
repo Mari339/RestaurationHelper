@@ -21,7 +21,7 @@ void Configurator::loadMenu() {
     std::ifstream inFile;
     openFile(path_to_menu, inFile);
     std::string id, name, price;
-    Menu temp;
+    Restauration::Menu temp;
     while (inFile >> id >> name >> price) {
         temp.setMenu(std::stoi(id), name, std::stof(price));
         menu.push_back(temp);
