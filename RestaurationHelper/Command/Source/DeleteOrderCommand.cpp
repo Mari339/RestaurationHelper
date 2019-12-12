@@ -1,5 +1,7 @@
 #include "../Include/DeleteOrderCommand.hpp"
 
+using namespace Command;
+
 bool DeleteOrderCommand::execute() {
     int id = getOrderId("Choose order ID to delete (0 to cancel): ");
     if (id == 0)

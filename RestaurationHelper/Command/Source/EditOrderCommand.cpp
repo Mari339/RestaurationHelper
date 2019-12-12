@@ -1,5 +1,7 @@
 #include "../Include/EditOrderCommand.hpp"
 
+using namespace Command;
+
 bool EditOrderCommand::execute() {
     int id = getOrderId("Choose order ID to edit (0 to cancel): ");
     if (!checkIfOrderExists(id))

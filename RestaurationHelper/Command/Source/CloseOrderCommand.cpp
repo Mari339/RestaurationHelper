@@ -1,5 +1,7 @@
 #include "../Include/CloseOrderCommand.hpp"
 
+using namespace Command;
+
 CloseOrderCommand::CloseOrderCommand(std::shared_ptr<Kitchen> kitchen) : ICommand(kitchen) {}
 
 bool CloseOrderCommand::execute() {

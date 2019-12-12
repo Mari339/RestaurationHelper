@@ -7,6 +7,8 @@
 #include <vector>
 #include <iostream>
 
+namespace Command {
+
 class AddOrderCommand : public ICommand {
 private:
     std::vector<Menu> menu;
@@ -19,5 +21,7 @@ private:
     void showMenu();
     std::pair<Menu, bool> getMenuObject(char);
 };
+
+}
 
 #endif // !ADDORDERCOMMAND_H

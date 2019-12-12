@@ -54,6 +54,7 @@ void Restaurant::process() {
 }
 
 void Restaurant::prepareCommands() {
+    using namespace Command;
     commands.push_back(std::make_shared<AddOrderCommand>(kitchen, menu));
     commands.push_back(std::make_shared<CloseOrderCommand>(kitchen));
     commands.push_back(std::make_shared<EditOrderCommand>(kitchen,

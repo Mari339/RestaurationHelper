@@ -17,6 +17,8 @@
 #include "../Command/Include/ShowCompletedOrdersCommand.hpp"
 #include "../pch.h"
 
+using Command::ICommand;
+
 
 class Restaurant {
 private:

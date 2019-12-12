@@ -4,6 +4,8 @@
 #include "../../Include/Kitchen.hpp"
 #include <memory>
 
+namespace Command {
+
 class ICommand {
 protected:
     std::shared_ptr<Kitchen> kitchen;
@@ -23,6 +25,8 @@ public:
     ICommand(std::shared_ptr<Kitchen>& kitchen) : kitchen(kitchen) {}
     virtual bool execute() = 0;
 };
+
+}
 
 #endif // ICOMMAND_H
 

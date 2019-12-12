@@ -4,6 +4,8 @@
 #include "ICommand.hpp"
 #include "AddOrderCommand.hpp"
 
+namespace Command {
+
 class EditOrderCommand : public ICommand {
 private:
     constexpr static int ASCII_SHIFT = 48;
@@ -16,5 +18,7 @@ private:
     bool checkIfOrderExists(int);
     void showInfo(const Order& order);
 };
+
+}
 
 #endif // !EDITORDERCOMMAND_H

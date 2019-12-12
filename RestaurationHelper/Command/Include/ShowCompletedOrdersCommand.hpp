@@ -3,6 +3,8 @@
 
 #include "ICommand.hpp"
 
+namespace Command {
+
 class ShowCompletedOrdersCommand : public ICommand {
 public:
     ShowCompletedOrdersCommand(std::shared_ptr<Kitchen> kitchen) : ICommand(kitchen) {}
@@ -11,5 +13,7 @@ public:
         return true;
     }
 };
+
+}
 
 #endif // !SHOWCOMPLETEDORDERSCOMMAND_H

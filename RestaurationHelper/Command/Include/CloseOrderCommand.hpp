@@ -3,12 +3,14 @@
 
 #include "ICommand.hpp"
 
+namespace Command {
+
 class CloseOrderCommand : public ICommand {
 public:
     CloseOrderCommand(std::shared_ptr<Kitchen>);
     bool execute();
-private:
-    int getIdToClose();
 };
+
+}
 
 #endif
