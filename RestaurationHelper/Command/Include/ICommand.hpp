@@ -11,7 +11,7 @@ namespace Command {
 class ICommand {
 protected:
     std::shared_ptr<Kitchen> kitchen;
-    int getOrderId(const std::string msg) {
+    int getOrderId(const std::string msg) const {
         try {
             std::cout << msg;
             int choice;

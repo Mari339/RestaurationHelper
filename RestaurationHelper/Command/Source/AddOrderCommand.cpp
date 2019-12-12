@@ -33,7 +33,7 @@ std::vector<Menu> AddOrderCommand::makeDishesListFromMenu() {
     }
 }
 
-void AddOrderCommand::showMenu() {
+void AddOrderCommand::showMenu() const {
     for (Menu m : menu) {
         m.show();
         std::cout << "\n";

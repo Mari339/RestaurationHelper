@@ -18,11 +18,11 @@ private:
     std::vector<Menu> menu;
 public:
     AddOrderCommand(std::shared_ptr<Kitchen>&, const std::vector<Menu>&);
-    bool execute();
+    bool execute() override;
     Order createOrder();
 private:
     std::vector<Menu> makeDishesListFromMenu();
-    void showMenu();
+    void showMenu() const;
     std::pair<Menu, bool> getMenuObject(char);
 };
 

@@ -14,11 +14,11 @@ bool EditOrderCommand::execute() {
     return kitchen->replaceOrderInPendingOrders(to_edit, to_add);
 }
 
-bool EditOrderCommand::checkIfOrderExists(int id) {
+bool EditOrderCommand::checkIfOrderExists(int id) const {
     return kitchen->isIdInPendingOrders(id);
 }
 
-void EditOrderCommand::showInfo(const Order& order) {
+void EditOrderCommand::showInfo(const Order& order) const {
     std::cout << "Order you want to edit:\n";
     order.show();
     std::cout << "\nCreate new order:\n";

@@ -16,16 +16,16 @@ private:
     std::deque<Order> completed_orders;
 public:
     Kitchen() : pending_orders(), completed_orders() {}
-    bool isIdInPendingOrders(int);
+    bool isIdInPendingOrders(const int) const;
     bool insertToPendingOrders(Order);
-    bool replaceOrderInPendingOrders(Order, Order);
-    bool deleteFromOrdersQueue(Order);
+    bool replaceOrderInPendingOrders(const Order&, Order);
+    bool deleteFromOrdersQueue(const Order&);
     bool updateCompletedOrders(Order);
-    Order getOrder(int) noexcept(false);
-    void showPendingOrders();
-    void showCompletedOrders();
+    Order getOrder(int) const noexcept(false);
+    void showPendingOrders() const;
+    void showCompletedOrders() const;
 private:
-    void printOrder(const Order&);
+    void printOrder(const Order&) const;
 };
 
 }

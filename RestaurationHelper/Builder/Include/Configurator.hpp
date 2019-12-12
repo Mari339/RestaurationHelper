@@ -22,12 +22,12 @@ private:
     std::vector<Restauration::Menu> menu;
     std::vector<int> list_of_ids;
 public:
-    Restaurant getRestaurant();
-    void loadConfig(std::string path = "C:\\Users\\Mari\\source\\repos\\RestaurationHelper\\RestaurationHelper\\Data\\config.ini");
-    void loadMenu();
-    void loadIds();
+    Restaurant getRestaurant() override;
+    void loadConfig(std::string path = "C:\\Users\\Mari\\source\\repos\\RestaurationHelper\\RestaurationHelper\\Data\\config.ini") override;
+    void loadMenu() override;
+    void loadIds() override;
 private:
-    std::string getConfigValue(const std::string&);
+    std::string getConfigValue(const std::string&) const;
     void openFile(const std::string&, std::ifstream&);
     void createKitchen(Restaurant&);
 };

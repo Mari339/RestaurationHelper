@@ -18,8 +18,8 @@ public:
         : ICommand(kitchen), orders_adder(orders_adder) {}
     bool execute() override;
 private:
-    bool checkIfOrderExists(int);
-    void showInfo(const Order& order);
+    bool checkIfOrderExists(int) const;
+    void showInfo(const Order& order) const;
 };
 
 }

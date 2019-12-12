@@ -41,7 +41,7 @@ void Configurator::loadIds() {
     inFile.close();
 }
 
-std::string Configurator::getConfigValue(const std::string& key) {
+std::string Configurator::getConfigValue(const std::string& key) const {
     return config.find(key)->second;
 }
 

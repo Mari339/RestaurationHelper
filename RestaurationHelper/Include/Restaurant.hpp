@@ -42,11 +42,11 @@ public:
     void process();
 private:
     bool logIn();
-    bool checkForId(int);
+    bool checkForId(int) const;
     void prepareCommands();
-    void showMenu();
+    void showMenu() const;
     bool handleMenu();
-    char getUserChoice();
+    char getUserChoice() const;
 };
 
 }

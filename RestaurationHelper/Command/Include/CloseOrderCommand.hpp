@@ -10,7 +10,7 @@ namespace Command {
 class CloseOrderCommand : public ICommand {
 public:
     CloseOrderCommand(std::shared_ptr<Kitchen>);
-    bool execute();
+    bool execute() override;
 };
 
 }

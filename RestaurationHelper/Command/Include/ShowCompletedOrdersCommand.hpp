@@ -10,7 +10,7 @@ namespace Command {
 class ShowCompletedOrdersCommand : public ICommand {
 public:
     ShowCompletedOrdersCommand(std::shared_ptr<Kitchen> kitchen) : ICommand(kitchen) {}
-    bool execute() {
+    bool execute() override {
         kitchen->showCompletedOrders();
         return true;
     }

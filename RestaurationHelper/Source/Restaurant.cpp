@@ -38,7 +38,7 @@ bool Restaurant::logIn() {
     return checkForId(id);
 }
 
-bool Restaurant::checkForId(int id) {
+bool Restaurant::checkForId(int id) const {
     for (int i : list_of_ids)
         if (i == id)
             return true;
@@ -66,7 +66,7 @@ void Restaurant::prepareCommands() {
     commands.push_back(std::make_shared<ShowCompletedOrdersCommand>(kitchen));
 }
 
-void Restaurant::showMenu() {
+void Restaurant::showMenu() const {
     std::cout << "--------------------\n";
     std::cout << "       MENU\n";
     std::cout << "--------------------\n";
@@ -110,7 +110,7 @@ bool Restaurant::handleMenu() {
     return false;
 }
 
-char Restaurant::getUserChoice() {
+char Restaurant::getUserChoice() const {
     std::cout << "Your choice: ";
     char choice;
     std::cin >> choice;
