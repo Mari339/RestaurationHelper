@@ -1,5 +1,7 @@
 #include "../Include/TxtConfigReader.hpp"
 
+using namespace ConfigReader;
+
 std::map<std::string, std::string> TxtConfigReader::loadConfig(std::string path) {
     std::map<std::string, std::string> config;
     std::ifstream inFile;

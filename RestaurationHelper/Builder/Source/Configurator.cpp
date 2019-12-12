@@ -2,6 +2,7 @@
 
 
 using namespace Builder;
+using ConfigReader::TxtConfigReader;
 
 
 Restaurant Configurator::getRestaurant() {
