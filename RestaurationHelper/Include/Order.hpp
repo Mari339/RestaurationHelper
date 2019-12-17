@@ -15,10 +15,10 @@ private:
     struct std::tm* order_time;
 public:
     int id;
-    Order(const std::vector<Menu>& dishes);
+    Order(const std::vector<Menu>&& dishes);
     void show() const;
     std::vector<Menu> getDishes();
-    void updateDishes(const std::vector<Menu>&);
+    void updateDishes(const std::vector<Menu>&&);
     bool operator<(const Order&) const;
 private:
     void computePrice();

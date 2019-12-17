@@ -19,7 +19,7 @@ public:
         std::shared_ptr<IBuilder> builder = std::make_shared<Configurator>();
         director.setBuilder(builder);
         director.build();
-        Restaurant restaurant = builder->getRestaurant();
+        Restaurant restaurant = std::move(builder->getRestaurant());
         restaurant.run();
     }
 };

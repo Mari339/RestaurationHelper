@@ -4,9 +4,9 @@ using namespace Restauration;
 
 int Order::id_counter = 0;
 
-Order::Order(const std::vector<Menu>& dishes) {
+Order::Order(const std::vector<Menu>&& dishes) {
     id = ++id_counter;
-    updateDishes(dishes);
+    updateDishes(std::move(dishes));
     setOrderTime();
 }
 
@@ -24,7 +24,7 @@ std::vector<Menu> Order::getDishes() {
     return dishes;
 }
 
-void Order::updateDishes(const std::vector<Menu>& dishes) {
+void Order::updateDishes(const std::vector<Menu>&& dishes) {
     this->dishes = dishes;
     computePrice();
 }

@@ -41,7 +41,7 @@ void AddOrderCommand::showMenu() const {
 
 std::pair<Menu, bool> AddOrderCommand::getMenuObject(char choice) {
     for (Menu m : menu)
-        if (m.id == choice - '0')
+        if (m.id == choice)
             return std::make_pair(m, true);
     return std::make_pair(Menu(), false);
 }

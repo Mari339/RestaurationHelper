@@ -6,7 +6,7 @@ using ConfigReader::TxtConfigReader;
 
 
 Restaurant Configurator::getRestaurant() {
-    Restaurant output(getConfigValue("name"), list_of_ids, menu);
+    Restaurant output(getConfigValue("name"), std::move(list_of_ids), std::move(menu));
     return output;
 }
 
