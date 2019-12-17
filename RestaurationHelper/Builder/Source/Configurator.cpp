@@ -30,13 +30,14 @@ void Configurator::loadMenu() {
 }
 
 void Configurator::loadIds() {
+    list_of_ids = std::set<int>();
     std::string path_to_ids = getConfigValue("ids");
     std::ifstream inFile;
     openFile(path_to_ids, inFile);
     std::string id;
     while (inFile >> id) {
         int id_val = stoi(id);
-        list_of_ids.push_back(id_val);
+        list_of_ids.insert(id_val);
     }
     inFile.close();
 }

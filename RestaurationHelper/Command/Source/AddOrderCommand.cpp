@@ -18,12 +18,11 @@ Order AddOrderCommand::createOrder() {
 }
 
 std::vector<Menu> AddOrderCommand::makeDishesListFromMenu() {
-    char choice;
     std::vector<Menu> output;
     while(true) {
         showMenu();
-        std::cin >> choice;
-        if (choice == '0')
+        int choice = getOrderId("Your choice (ID, 0 to confirm): ");
+        if (choice == 0)
             return output;
         std::pair<Menu, bool> new_dish = getMenuObject(choice);
         if (new_dish.second)
@@ -38,7 +37,6 @@ void AddOrderCommand::showMenu() const {
         m.show();
         std::cout << "\n";
     }
-    std::cout << "Your choice (ID, 0 to confirm): ";
 }
 
 std::pair<Menu, bool> AddOrderCommand::getMenuObject(char choice) {

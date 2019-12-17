@@ -2,16 +2,16 @@
 
 using namespace Restauration;
 
-Restaurant::Restaurant() : name("Restaurant"), list_of_ids(1, 1), menu(), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
+Restaurant::Restaurant() : name("Restaurant"), list_of_ids(), menu(), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
 
 Restaurant::Restaurant(const std::string& name) : name(name),
-                                                  list_of_ids(1, 1),
+                                                  list_of_ids(),
                                                   menu(),
                                                   kitchen(nullptr),
                                                   commands(COMMANDS_NUMBER) {}
 
 Restaurant::Restaurant(const std::string& name,
-                       const std::vector<int>& ids,
+                       const std::set<int>& ids,
                        const std::vector<Menu>& menu)
     : name(name), list_of_ids(ids), menu(menu), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
 
@@ -39,10 +39,7 @@ bool Restaurant::logIn() {
 }
 
 bool Restaurant::checkForId(int id) const {
-    for (int i : list_of_ids)
-        if (i == id)
-            return true;
-    return false;
+    return list_of_ids.find(id) != list_of_ids.end();
 }
 
 void Restaurant::process() {
@@ -60,7 +57,7 @@ void Restaurant::prepareCommands() {
     commands.push_back(std::make_shared<AddOrderCommand>(kitchen, menu));
     commands.push_back(std::make_shared<CloseOrderCommand>(kitchen));
     commands.push_back(std::make_shared<EditOrderCommand>(kitchen,
-        std::move(std::dynamic_pointer_cast<AddOrderCommand>(commands.at(0)))));
+        std::dynamic_pointer_cast<AddOrderCommand>(commands.at(0))));
     commands.push_back(std::make_shared<DeleteOrderCommand>(kitchen));
     commands.push_back(std::make_shared<ShowPendingOrdersCommand>(kitchen));
     commands.push_back(std::make_shared<ShowCompletedOrdersCommand>(kitchen));

@@ -7,6 +7,7 @@
 #include "../../Include/Restaurant.hpp"
 #include "../../ConfigReader/Include/TxtConfigReader.hpp"
 #include <map>
+#include <set>
 #include <vector>
 #include <fstream>
 #include <iostream>
@@ -20,7 +21,7 @@ class Configurator : public IBuilder {
 private:
     std::map<std::string, std::string> config;
     std::vector<Restauration::Menu> menu;
-    std::vector<int> list_of_ids;
+    std::set<int> list_of_ids;
 public:
     Restaurant getRestaurant() override;
     void loadConfig(std::string path = "C:\\Users\\Mari\\source\\repos\\RestaurationHelper\\RestaurationHelper\\Data\\config.ini") override;

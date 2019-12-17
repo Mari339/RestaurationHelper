@@ -23,7 +23,7 @@ namespace Restauration {
 
 class Restaurant {
 private:
-    std::vector<int> list_of_ids;
+    std::set<int> list_of_ids;
     std::string name;
     std::vector<Menu> menu;
     std::shared_ptr<Kitchen> kitchen;
@@ -36,7 +36,7 @@ private:
 public:
     Restaurant();
     Restaurant(const std::string&);
-    Restaurant(const std::string&, const std::vector<int>&, const std::vector<Menu>&);
+    Restaurant(const std::string&, const std::set<int>&, const std::vector<Menu>&);
     bool setUpKitchen();
     void run();
     void process();
