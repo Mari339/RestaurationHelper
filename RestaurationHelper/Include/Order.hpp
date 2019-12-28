@@ -13,6 +13,8 @@ private:
     double price;
     std::vector<Menu> dishes;
     struct std::tm* order_time;
+    const std::string COLOR_START = "\033[1;31m";
+    const std::string COLOR_END = "\033[0m";
 public:
     int id;
     Order(const std::vector<Menu>&& dishes);

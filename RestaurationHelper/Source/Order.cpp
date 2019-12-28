@@ -11,9 +11,9 @@ Order::Order(const std::vector<Menu>&& dishes) {
 }
 
 void Order::show() const {
-    std::cout << "ID: " << id << ", DATE: " << asctime(order_time)
-              << "TOTAL PRICE:" << price << "\n"
-              << "DISHES: " << "\n";
+    std::cout << COLOR_START << "ID: " << COLOR_END << id << ", " << COLOR_START << "DATE: " << COLOR_END << asctime(order_time)
+              << COLOR_START << "TOTAL PRICE: " << COLOR_END << price << "\n"
+              << COLOR_START << "DISHES: " << COLOR_END << "\n";
     for (unsigned i = 0; i < dishes.size(); i++) {
         dishes[i].show();
         std::cout << ",\n";
