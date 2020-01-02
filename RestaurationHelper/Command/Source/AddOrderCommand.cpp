@@ -7,14 +7,14 @@ AddOrderCommand::AddOrderCommand(std::shared_ptr<Kitchen>& kitchen, const std::v
     : ICommand::ICommand(kitchen), menu(menu) {}
 
 bool AddOrderCommand::execute() {
-    Order order = createOrder();
+    Order order = std::move(createOrder());
     if (order.getDishes().size() == 0)
         return false;
-    return kitchen->insertToPendingOrders(order);
+    return kitchen->insertToPendingOrders(std::move(order));
 }
 
 Order AddOrderCommand::createOrder() {
-    return Order(makeDishesListFromMenu());
+    return std::move(Order(makeDishesListFromMenu()));
 }
 
 std::vector<Menu> AddOrderCommand::makeDishesListFromMenu() {
@@ -23,7 +23,7 @@ std::vector<Menu> AddOrderCommand::makeDishesListFromMenu() {
         showMenu();
         int choice = getOrderId("Your choice (ID, 0 to confirm): ");
         if (choice == 0)
-            return output;
+            return std::move(output);
         std::pair<Menu, bool> new_dish = getMenuObject(choice);
         if (new_dish.second)
             output.push_back(new_dish.first);

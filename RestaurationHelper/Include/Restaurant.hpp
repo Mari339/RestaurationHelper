@@ -37,6 +37,7 @@ public:
     Restaurant();
     Restaurant(const std::string&);
     Restaurant(const std::string&, const std::set<int>&, const std::vector<Menu>&);
+    Restaurant(Restaurant&& r);
     bool setUpKitchen();
     void run();
     void process();

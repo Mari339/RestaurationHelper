@@ -9,9 +9,9 @@ bool CloseOrderCommand::execute() {
     if (id == 0)
         return false;
     try {
-        Restauration::Order order = kitchen->getOrder(id);
+        Restauration::Order order = std::move(kitchen->getOrder(id));
         bool result = kitchen->deleteFromOrdersQueue(order);
-        return result && kitchen->updateCompletedOrders(order);
+        return result && kitchen->updateCompletedOrders(std::move(order));
     }
     catch (const char* msg) {
         std::cout << msg << "\n";

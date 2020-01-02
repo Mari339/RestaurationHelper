@@ -17,7 +17,11 @@ private:
     const std::string COLOR_END = "\033[0m";
 public:
     int id;
-    Order(const std::vector<Menu>&& dishes);
+    Order(const std::vector<Menu>&&);
+    Order(const Order&) = default;
+    Order(Order&&);
+    Order& operator=(Order&) = default;
+    Order& operator=(Order&&);
     void show() const;
     std::vector<Menu> getDishes();
     void updateDishes(const std::vector<Menu>&&);

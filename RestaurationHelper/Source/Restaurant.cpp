@@ -15,6 +15,14 @@ Restaurant::Restaurant(const std::string& name,
                        const std::vector<Menu>& menu)
     : name(name), list_of_ids(ids), menu(menu), kitchen(nullptr), commands(COMMANDS_NUMBER) {}
 
+Restaurant::Restaurant(Restaurant&& r) : list_of_ids(std::move(r.list_of_ids)),
+                                         name(std::move(r.name)),
+                                         menu(std::move(r.menu)),
+                                         kitchen(std::move(r.kitchen)),
+                                         commands(std::move(r.commands)) {
+    r.kitchen = nullptr;
+}
+
 bool Restaurant::setUpKitchen() {
     if (kitchen == nullptr) {
         kitchen = std::make_shared<Kitchen>();

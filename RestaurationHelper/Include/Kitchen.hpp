@@ -19,7 +19,7 @@ public:
     bool isIdInPendingOrders(const int) const;
     bool insertToPendingOrders(Order);
     bool replaceOrderInPendingOrders(const Order&, Order);
-    bool deleteFromOrdersQueue(const Order&);
+    bool deleteFromOrdersQueue(Order);
     bool updateCompletedOrders(Order);
     Order getOrder(int) const noexcept(false);
     void showPendingOrders() const;

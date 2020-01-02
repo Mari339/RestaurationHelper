@@ -10,6 +10,23 @@ Order::Order(const std::vector<Menu>&& dishes) {
     setOrderTime();
 }
 
+Order::Order(Order&& order) {
+    id = order.id;
+    price = order.price;
+    dishes = std::move(order.dishes);
+    order_time = order.order_time;
+    order.order_time = nullptr;
+}
+
+Order& Order::operator=(Order&& order) {
+    id = order.id;
+    price = order.price;
+    dishes = std::move(order.dishes);
+    order_time = order.order_time;
+    order.order_time = nullptr;
+    return *this;
+}
+
 void Order::show() const {
     std::cout << COLOR_START << "ID: " << COLOR_END << id << ", " << COLOR_START << "DATE: " << COLOR_END << asctime(order_time)
               << COLOR_START << "TOTAL PRICE: " << COLOR_END << price << "\n"

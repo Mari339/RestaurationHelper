@@ -3,8 +3,8 @@
 using namespace Restauration;
 
 bool Kitchen::isIdInPendingOrders(int id) const {
-    for (auto i : pending_orders)
-        if (id == i.id)
+    for (auto i = pending_orders.begin(); i != pending_orders.end(); i++)
+        if (id == i->id)
             return true;
     return false;
 }
@@ -24,7 +24,7 @@ bool Kitchen::replaceOrderInPendingOrders(const Order& old_order, Order new_orde
     return true;
 }
 
-bool Kitchen::deleteFromOrdersQueue(const Order& order) {
+bool Kitchen::deleteFromOrdersQueue(Order order) {
     if (!isIdInPendingOrders(order.id))
         return false;
     pending_orders.erase(order);
@@ -39,22 +39,22 @@ bool Kitchen::updateCompletedOrders(Order order) {
 }
 
 Order Kitchen::getOrder(int id) const {
-    for (auto i : pending_orders)
-        if (i.id == id)
-            return i;
+    for (auto i = pending_orders.begin(); i != pending_orders.end(); i++)
+        if (i->id == id)
+            return *i;
     throw("Given id is not in pending_orders");
 }
 
 void Kitchen::showPendingOrders() const {
     std::cout << "Number of orders: " << pending_orders.size() << "\n";
-    for (Order o : pending_orders)
-        printOrder(o);
+    for (auto i = pending_orders.begin(); i != pending_orders.end(); i++)
+        printOrder(*i);
 }
 
 void Kitchen::showCompletedOrders() const {
     std::cout << "Last " << completed_orders.size() << " completed orders: \n";
-    for (Order o : completed_orders)
-        printOrder(o);
+    for (auto i = completed_orders.begin(); i != completed_orders.end(); i++)
+        printOrder(*i);
 }
 
 void Kitchen::printOrder(const Order& o) const {
