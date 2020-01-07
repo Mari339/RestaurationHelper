@@ -3,7 +3,7 @@
 using namespace Restauration;
 
 bool Kitchen::isIdInPendingOrders(int id) const {
-    return std::any_of(pending_orders.begin(), pending_orders.end(), [&id](auto &i) { return i.id == id; });
+    return std::any_of(pending_orders.begin(), pending_orders.end(), [&id](const auto &i) { return i.id == id; });
 }
 
 bool Kitchen::insertToPendingOrders(Order order) {
@@ -36,7 +36,7 @@ bool Kitchen::updateCompletedOrders(Order order) {
 }
 
 Order Kitchen::getOrder(int id) const {
-    auto result = std::find_if(pending_orders.begin(), pending_orders.end(), [&id](auto &i) { return i.id == id; });
+    auto result = std::find_if(pending_orders.begin(), pending_orders.end(), [&id](const auto &i) { return i.id == id; });
     if (result != pending_orders.end())
         return *result;
     throw("Given id is not in pending_orders");
