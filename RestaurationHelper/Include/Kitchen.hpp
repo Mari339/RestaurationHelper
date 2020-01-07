@@ -5,6 +5,8 @@
 #include <iostream>
 #include <deque>
 #include <iterator>
+#include <algorithm>
+#include <functional>
 #include "Order.hpp"
 
 namespace Restauration {
